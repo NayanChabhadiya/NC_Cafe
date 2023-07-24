@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>HOME Page</title>
+        <ui:include src="css.xhtml"></ui:include>
+        <ui:include src="script.xhtml"></ui:include>        
+    </h:head>
+    <h:body>
+        <div class="container-scroller">
+            <ui:include src="sidebar_header.xhtml"></ui:include>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row ">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Users</h4>
+                                    <div class="table-responsive">
+                                        
+                                        <h:form>
+                                            <p:dataTable widgetVar="dtUser" value="#{AdminBean.allUsers()}" var="user" paginator="true" rows="10" paginatorPosition="bottom">
+                                                <f:facet name="header">
+                                                    <div class="products-table-header">
+                                                        <span style="font-weight: bold">CATEGORY</span>
+                                                        <span class="filter-container ui-input-icon-left">
+                                                            <i class="pi pi-search"></i>
+                                                            <p:inputText id="globalFilter" onkeyup="PF('dtUser').filter()" placeholder="Search" />
+                                                        </span>
+                                                    </div>
+                                                </f:facet>
+                                                <p:column headerText="User ID" sortBy="#{user.userId}" filterBy="#{user.userId}">#{user.userId}</p:column>
+                                                <p:column headerText="Profile Image">
+                                                    <p:graphicImage class="rounded mr-3" name="#{user.profileImage}" library="users"  width="80" height="80"/>
+                                                </p:column>
+                                                <p:column headerText="First Name" sortBy="#{user.firstname}" filterBy="#{user.firstname}">#{user.firstname}</p:column>
+                                                <p:column headerText="Last Name" sortBy="#{user.lastname}" filterBy="#{user.lastname}">#{user.lastname}</p:column>
+                                                <p:column headerText="Username" sortBy="#{user.username}" filterBy="#{user.username}">#{user.username}</p:column>
+                                                <p:column headerText="Email" sortBy="#{user.email}" filterBy="#{user.email}">#{user.email}</p:column>
+                                                <p:column headerText="Gender" sortBy="#{user.gender}" filterBy="#{user.gender}">#{user.gender}</p:column>
+                                                <p:column headerText="Mobile No" sortBy="#{user.mobileNo}" filterBy="#{user.mobileNo}">#{user.mobileNo}</p:column>
+                                                <p:column headerText="Address" sortBy="#{user.address}" filterBy="#{user.address}">#{user.address}</p:column>
+                                                <p:column headerText="User Role" sortBy="#{user.userRole}" filterBy="#{user.userRole}">#{user.userRole}</p:column>
+                                                <p:column headerText="Action">
+                                                    <h:commandLink class="btn btn-danger" action="#{AdminBean.deleteUser(user.userId)}" onclick="if (! confirm('Really delete this Account?') ) { return false;}; return true;">DELETE</h:commandLink>
+                                                </p:column>
+                                            </p:dataTable>
+                                        </h:form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ui:include src="footer.xhtml"></ui:include>
+            </div>
+        </div>
+    </h:body>
+</html>
+

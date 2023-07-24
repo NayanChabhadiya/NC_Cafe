@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Add Item Page</title>
+        <ui:include src="css.xhtml"></ui:include>
+        <ui:include src="script.xhtml"></ui:include>        
+    </h:head>
+    <h:body>
+        <div class="container-scroller">
+            <ui:include src="sidebar_header.xhtml"></ui:include>
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row ">
+                        <div class="col-6 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Add Item </h4>
+                                    <div class="table-responsive">
+                                        <div class="text-right" style="margin-left: 300px">
+                                          <span>
+                                            <a href="items.jsf" class="btn btn-outline-light btn-rounded get-started-btn">View Item</a>
+                                          </span>
+                                        </div>
+                                        <h:form enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Name</h:outputLabel>
+                                                <h:inputText class="form-control" value="#{AdminBean.item_name}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Price</h:outputLabel>
+                                                <h:inputText class="form-control" value="#{AdminBean.item_price}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Image</h:outputLabel>
+                                                <!--<h:inputText class="form-control" value="#AdminBean.item_image"/>-->
+                                                <h:inputFile class="form-control" value="#{AdminBean.uploadedFile}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Description</h:outputLabel>
+                                                <h:inputText class="form-control" value="#{AdminBean.item_description}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Category</h:outputLabel>
+                                                <h:selectOneMenu class="form-control" value="#{AdminBean.category_id}">
+                                                    <f:selectItems value="#{AdminBean.allCategory()}" var="category" itemLabel="#{category.categoryName}" itemValue="#{category.categoryId}"></f:selectItems>
+                                                </h:selectOneMenu>
+                                            </div>
+                                            <div class="form-group" align="center">
+                                                <h:commandButton class="btn btn-primary mr-2" value="Add Item" action="#{AdminBean.addItem()}"/>
+                                            </div>
+                                        </h:form>
+                                        <!--<div class="card">-->
+<!--                                            <h:form enctype="multipart/form-data">
+                                                <div class="ui-fluid formgrid grid">
+                                                    <div class="field col-12 md:col-4">
+                                                        <p:outputLabel value="Item Name"/>
+                                                        <p:inputText value="#" />
+                                                    </div>
+                                                </div>
+                                                <div class="ui-fluid formgrid grid">
+                                                    <div class="field col-12 md:col-4">
+                                                        <p:outputLabel value="Item Price"/>
+                                                        <p:spinner id="prefix" value="#" prefix="$" min="0"/>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-fluid formgrid grid">
+                                                    <div class="field col-12 md:col-4">
+                                                        <p:outputLabel value="Item Description"/>
+                                                        <p:inputText value="#"/>
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <div class="field col-12 md:col-4">
+                                                        <p:outputLabel value="Item Category"/>
+                                                        <p:selectOneMenu class="form-control" value="#">
+                                                            <f:selectItems class="form-control" value="#" var="category" itemLabel="#" itemValue="#"></f:selectItems>
+                                                        </p:selectOneMenu>
+                                                    </div>
+                                                </div>
+                                                <div class="ui-fluid formgrid grid" style="margin-top: 20px">
+                                                    <div class="field col-12 md:col-4">
+                                                        <p:outputLabel value="Item Image" style="margin-right: 10px"/>
+                                                        <p:fileUpload value="#" mode="simple" skinSimple="true"/>
+                                                    </div>
+                                                </div>
+                                                <div align="center" style="margin-top: 20px">
+                                                    <h:commandButton type="button" value="Success" actionListener="#" styleClass="ui-button-success" />
+                                                </div>
+                                            </h:form>
+                                        </div>-->
+<!--                                        <h:form>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Name</h:outputLabel>
+                                                <p:inputText class="form-control" placeholder="Item Name" value=""></p:inputText>
+                                            </div>
+                                            <div class="form-group field col-12 ">
+                                                <p:outputLabel value="Prefix"/>
+                                                <p:inputText class="form-control" placeholder="Item Price" value=""></p:inputText>
+                                                <p:spinner id="prefix" value="#" prefix="$" min="0"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Image</h:outputLabel>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Description</h:outputLabel>
+                                            </div>
+                                            <div class="form-group">
+                                                <h:outputLabel>Item Category</h:outputLabel>
+                                            </div>
+                                        </h:form>-->
+
+<!--                                        <h:form enctype="multipart/form-data">
+                                              <div class="form-group">
+                                                  <h:outputLabel>Item Id</h:outputLabel>
+                                                  <h:inputText class="form-control" id="item_name" value="#"/>
+                                              </div>
+                                              <div class="form-group">
+                                                  <h:outputLabel>Select Category</h:outputLabel>
+                                                  <h:selectOneMenu class="form-control" value="#">
+                                                      <f:selectItems class="form-control" value="#" var="category" itemLabel="#" itemValue="#"></f:selectItems>
+                                                  </h:selectOneMenu>
+                                              </div>
+                                              <div class="form-group">
+                                                <h:outputLabel>Item Name</h:outputLabel>
+                                                <h:inputText class="form-control" id="item_name" value="#"/>
+                                              </div>
+                                              <div class="form-group">
+                                                <h:outputLabel>Item Price</h:outputLabel>
+                                                <h:inputText class="form-control" id="item_price" value="#"/>
+                                              </div>
+                                              <div class="form-group">
+                                                <h:outputLabel>Item Image</h:outputLabel>
+                                                <h:inputText class="form-control" id="item_image" value="#"/>
+                                                <h:inputFile class="form-control" id="item_image" value="#"/>
+                                              </div>
+                                              <div class="form-group">
+                                                  <h:outputLabel>Item Rating</h:outputLabel>
+                                                  <h:selectOneMenu class="form-control" value="#">
+                                                      <f:selectItem itemValue="1"/>
+                                                      <f:selectItem itemValue="2"/>
+                                                      <f:selectItem itemValue="3"/>
+                                                      <f:selectItem itemValue="4"/>
+                                                      <f:selectItem itemValue="5"/>
+                                                  </h:selectOneMenu>
+                                              </div>
+                                              <div class="form-group">
+                                                  <h:commandButton class="btn btn-primary mr-2" value="Add Item" action="#"/>
+                                              </div>
+
+                                          </h:form>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ui:include src="footer.xhtml"></ui:include>
+            </div>
+        </div>
+    </h:body>
+</html>
+

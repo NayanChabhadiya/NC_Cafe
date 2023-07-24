@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div class="container-scroller">
+             <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+              <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                  
+                <a class="sidebar-brand brand-logo" href="#"><span class="nav-link">NC CAFE</span></a>
+                <!--<a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>-->
+              </div>
+              <ul class="nav">
+                  
+                <li class="nav-item nav-category">
+                  <span class="nav-link">Navigation</span>
+                </li>
+                
+                <li class="nav-item menu-items">
+                    <h:link class="nav-link" outcome="index">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        
+                        <span key="menu-title">Dashbord</span>
+                    </h:link>
+                </li>
+                  
+                <li class="nav-item menu-items">
+                    <h:link class="nav-link" outcome="categorys">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        
+                        <span key="menu-title">Category</span>
+                    </h:link>
+                </li>
+                  
+                <li class="nav-item menu-items">
+                    <h:link class="nav-link" outcome="items">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        
+                        <span key="menu-title">item</span>
+                    </h:link>
+                </li>
+                <li class="nav-item menu-items">
+                    <h:link class="nav-link" outcome="feedback">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-speedometer"></i>
+                        </span>
+                        
+                        <span key="menu-title">FeedBack</span>
+                    </h:link>
+                </li>
+                <li class="nav-item menu-items">
+                    <h:link class="nav-link" outcome="all_accounts">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account"></i>
+                        </span>
+                        
+                        <span key="menu-title">Users</span>
+                    </h:link>
+                </li>
+                
+              </ul>
+            </nav>
+            <!-- partial navbar -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:partials/_navbar.html -->
+              <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                  <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                  <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                  </button>
+                  
+                  <ul class="navbar-nav navbar-nav-right">
+                        <a class="btn btn-danger" href="/NC_Cafe/Logout.jsf">Logout</a>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </div>
+    </h:body>
+</html>
+
